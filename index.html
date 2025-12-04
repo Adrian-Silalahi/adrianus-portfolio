@@ -7,11 +7,13 @@
     <title>Portfolio Adrianus Silalahi</title>
     <link href="./dist/output.css" rel="stylesheet" />
   <script>
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
+  if (localStorage.theme === 'dark') {
+  darkToggle.checked = true;
+  html.classList.add('dark');
+} else {
+  darkToggle.checked = false;
+  html.classList.remove('dark');
+}
 </script>
 
     <link
