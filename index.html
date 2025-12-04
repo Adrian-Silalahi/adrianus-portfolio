@@ -4,29 +4,84 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Tailwind CSS</title>
-    <link href="dist/css/final.css" rel="stylesheet" />
+    <title>Portfolio Adrianus Silalahi</title>
+    <link href="./dist/output.css" rel="stylesheet" />
     <script>
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
+      if (
+        localStorage.theme === "light" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: light)").matches)
+      ) {
+        document.documentElement.classList.add("light");
       } else {
-        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.remove("light");
       }
     </script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      /* Mengubah warna panah dan titik navigasi Swiper */
+      :root {
+        --swiper-theme-color: #14b8a6; /* Ganti kode warna ini dengan warna 'primary' dari config Tailwind Anda jika berbeda */
+        --swiper-navigation-size: 30px; /* Ukuran panah */
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        font-weight: bold;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      /* Agar pagination dots tidak terlalu mepet bawah */
+      .swiper-pagination-bullets.swiper-pagination-horizontal {
+        bottom: 15px !important;
+      }
+      /* Memastikan gambar di dalam slide memiliki tinggi yang seragam */
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 300px; /* Tinggi default di mobile */
+        object-fit: cover; /* Agar gambar tidak gepeng */
+      }
+      /* Tinggi gambar di layar yang lebih besar */
+      @media (min-width: 1024px) {
+        .swiper-slide img {
+          height: 400px; /* Tinggi di laptop/desktop */
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Header Start -->
-    <header class="absolute top-0 left-0 z-10 flex w-full items-center bg-transparent">
+    <header
+      class="absolute top-0 left-0 z-10 flex w-full items-center bg-transparent"
+    >
       <div class="container">
         <div class="relative flex items-center justify-between">
           <div class="px-4">
-            <a href="#home" class="block py-6 text-lg font-bold text-primary">sandhikagalih</a>
+            <a href="#beranda" class="block py-6 text-lg font-bold text-primary"
+              >adriansilalahi</a
+            >
           </div>
           <div class="flex items-center px-4">
-            <button id="hamburger" name="hamburger" type="button" class="absolute right-4 block lg:hidden">
-              <span class="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
-              <span class="hamburger-line transition duration-300 ease-in-out"></span>
-              <span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span>
+            <button
+              id="hamburger"
+              name="hamburger"
+              type="button"
+              class="absolute right-4 block lg:hidden"
+            >
+              <span
+                class="hamburger-line origin-top-left transition duration-300 ease-in-out"
+              ></span>
+              <span
+                class="hamburger-line transition duration-300 ease-in-out"
+              ></span>
+              <span
+                class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"
+              ></span>
             </button>
 
             <nav
@@ -35,30 +90,58 @@
             >
               <ul class="block lg:flex">
                 <li class="group">
-                  <a href="#home" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Beranda</a>
+                  <a
+                    href="#beranda"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >Beranda</a
+                  >
                 </li>
                 <li class="group">
-                  <a href="#about" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Tentang Saya</a>
+                  <a
+                    href="#tentang-saya"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >Tentang Saya</a
+                  >
                 </li>
                 <li class="group">
-                  <a href="#portfolio" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Portfolio</a>
+                  <a
+                    href="#portfolio"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >Portfolio</a
+                  >
                 </li>
                 <li class="group">
-                  <a href="#clients" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Clients</a>
+                  <a
+                    href="#education"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >Education</a
+                  >
                 </li>
                 <li class="group">
-                  <a href="#blog" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Blog</a>
+                  <a
+                    href="#certificate"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >Certificate</a
+                  >
                 </li>
                 <li class="group">
-                  <a href="#contact" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white">Contact</a>
+                  <a
+                    href="#contact"
+                    class="mx-8 flex py-2 text-base text-dark group-hover:text-primary dark:text-white"
+                    >Enterpreneurial</a
+                  >
                 </li>
                 <li class="mt-3 flex items-center pl-8 lg:mt-0">
                   <div class="flex">
                     <span class="mr-2 text-sm text-slate-500">light</span>
                     <input type="checkbox" class="hidden" id="dark-toggle" />
                     <label for="dark-toggle">
-                      <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
-                        <div class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
+                      <div
+                        class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1"
+                      >
+                        <div
+                          class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"
+                        ></div>
                       </div>
                     </label>
                     <span class="ml-2 text-sm text-slate-500">dark</span>
@@ -73,57 +156,177 @@
     <!-- Header End -->
 
     <!-- Hero Section Start -->
-    <section id="home" class="pt-36 dark:bg-dark">
-      <div class="container">
-        <div class="flex flex-wrap">
-          <div class="w-full self-center px-4 lg:w-1/2">
-            <h1 class="text-base font-semibold text-primary md:text-xl">Halo Semua 👋, saya <span class="mt-1 block text-4xl font-bold text-dark dark:text-white lg:text-5xl">Sandhika Galih</span></h1>
-            <h2 class="mb-5 text-lg font-medium text-secondary lg:text-2xl">Lecturer & <span class="text-dark dark:text-white">Content Creator</span></h2>
-            <p class="mb-10 font-medium leading-relaxed text-secondary">Belajar web programming itu mudah dan menyenangkan bukan. <span class="font-bold text-dark dark:text-white">bukan!</span></p>
-
-            <a href="#" class="rounded-full bg-primary py-3 px-8 text-base font-semibold text-white transition duration-300 ease-in-out hover:opacity-80 hover:shadow-lg">Hubungi Saya</a>
-          </div>
-          <div class="w-full self-end px-4 lg:w-1/2">
-            <div class="relative mt-10 lg:right-0 lg:mt-9">
-              <img src="dist/img/sandhika.png" alt="Sandhika Galih" class="relative z-10 mx-auto max-w-full" />
-              <span class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
-                <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill="#14b8a6"
-                    d="M47.4,-51C59.2,-35.6,65.1,-17.8,63.4,-1.7C61.7,14.5,52.6,28.9,40.8,36.6C28.9,44.2,14.5,45,-2,47C-18.4,49,-36.8,52.1,-45.4,44.5C-53.9,36.8,-52.5,18.4,-51.2,1.3C-49.9,-15.8,-48.7,-31.7,-40.2,-47.1C-31.7,-62.4,-15.8,-77.3,1,-78.3C17.8,-79.2,35.6,-66.3,47.4,-51Z"
-                    transform="translate(100 100) scale(1.1)"
-                  />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
+<section id="beranda" class="pt-36 dark:bg-dark xl:pt-16">
+  <div class="container">
+    <div class="flex flex-wrap">
+      <div class="w-full self-center px-4 lg:w-1/2" data-aos="fade-right"> <h1 class="text-base font-semibold text-primary md:text-xl">
+          Hello Everyone 👋, I am
+          <span class="mt-1 block text-4xl font-bold text-dark dark:text-white lg:text-5xl">Adrianus Silalahi</span>
+        </h1>
+        
+        <button class="rounded-full bg-primary py-3 px-6 text-base font-semibold text-white transition duration-300 ease-in-out hover:opacity-80 hover:shadow-lg">
+             <a href="https://wa.me/62895332216003" target="_blank">Hubungi Saya</a>
+         </button>
       </div>
-    </section>
+      
+      <div class="w-full self-end px-4 lg:w-1/2">
+            <div class="relative mt-10 lg:right-0 lg:mt-9">
+              <img
+                src="dist/img/adrian.webp"
+                alt="adrian silalahi"
+                class="relative z-10 mx-auto max-w-full"
+              />
+              <span
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125"
+              >
+                <svg
+                  width="400"
+                  height="400"
+                  viewBox="0 0 200 200"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="#14b8a6"
+                    d="M47.4,-51C59.2,-35.6,65.1,-17.8,63.4,-1.7C61.7,14.5,52.6,28.9,40.8,36.6C28.9,44.2,14.5,45,-2,47C-18.4,49,-36.8,52.1,-45.4,44.5C-53.9,36.8,-52.5,18.4,-51.2,1.3C-49.9,-15.8,-48.7,-31.7,-40.2,-47.1C-31.7,-62.4,-15.8,-77.3,1,-78.3C17.8,-79.2,35.6,-66.3,47.4,-51Z"
+                    transform="translate(100 100) scale(1.1)"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+    </div>
+  </div>
+</section>
     <!-- Hero Section End -->
 
-    <!-- About Section Start -->
-    <section id="about" class="pt-36 pb-32 dark:bg-dark">
+    <!-- Tentang Saya Section Start -->
+    <section id="tentang-saya" class="pt-36 pb-32 dark:bg-dark">
       <div class="container">
         <div class="flex flex-wrap">
           <div class="mb-10 w-full px-4 lg:w-1/2">
-            <h4 class="mb-3 text-lg font-bold uppercase text-primary">Tentang Saya</h4>
-            <h2 class="mb-5 max-w-md text-3xl font-bold text-dark dark:text-white lg:text-4xl">Yuk, belajar web programming di WPU!</h2>
-            <p class="max-w-xl text-base font-medium text-secondary lg:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id temporibus maiores sequi vitae saepe iusto deleniti!</p>
+            <h4 class="mb-3 text-lg font-bold uppercase text-primary">
+              Tentang Saya
+            </h4>
+
+            <p
+              class="mb-2 max-w-xl text-justify text-base font-medium text-secondary dark:text-slate-400 lg:text-lg"
+            >
+              Halo, saya Adrianus Silalahi, seorang Full-Stack Web Developer
+              yang gemar memecahkan masalah dengan mengubah ide bisnis menjadi
+              solusi digital yang praktis. Semangat saya dalam pemrograman
+              mendorong saya untuk terus belajar — mulai dari bahasa pemrograman
+              hingga framework dan aspek lain dari dunia pengembangan.
+            </p>
+
+            <p
+              class="mb-4 text-justify text-base font-medium text-secondary dark:text-slate-400 lg:text-lg"
+            >
+              Saya memanfaatkan berbagai alat teknologi yang disesuaikan dengan
+              kebutuhan proyek:
+            </p>
+
+            <ul
+              class="list-disc space-y-2 pl-5 text-base font-medium text-secondary dark:text-slate-400 lg:text-lg"
+            >
+              <li class="pl-1">
+                Untuk pengembangan
+                <span class="italic text-slate-800 dark:text-white">Front-end</span>:
+                <span class="font-bold text-slate-600 dark:text-white"
+                  >React JS, Next JS, Tailwind, dan TypeScript/JavaScript</span
+                >
+              </li>
+
+              <li class="pl-1">
+                Untuk pengembangan
+                <span class="italic text-slate-800 dark:text-white">Back-end</span>:
+                <span class="font-bold text-slate-600 dark:text-white"
+                  >Node.js, MySQL, dan MongoDB</span
+                >
+              </li>
+
+              <li class="pl-1">
+                Untuk tugas otomatisasi & manajemen data:
+                <span class="font-bold text-slate-600 dark:text-white">Python</span>
+              </li>
+
+              <li class="pl-1">
+                Untuk manajemen proyek & kolaborasi:
+                <span class="font-bold text-slate-600 dark:text-white">Trello dan GitHub</span>
+              </li>
+            </ul>
           </div>
           <div class="w-full px-4 lg:w-1/2">
-            <h3 class="mb-4 text-2xl font-semibold text-dark dark:text-white lg:pt-10 lg:text-3xl">Mari berteman</h3>
-            <p class="mb-6 text-base font-medium text-secondary lg:text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quos, hic animi quasi ipsum exercitationem ipsam incidunt voluptatem.
+            <h3
+              class="mb-4 text-2xl font-semibold text-dark dark:text-white lg:pt-10 lg:text-3xl"
+            >
+              Mari Terhubung
+            </h3>
+            <p
+              class="mb-6 text-justify text-base font-medium text-secondary lg:text-lg"
+            >
+              Saya selalu antusias untuk bertemu orang baru, berbagi ide, dan
+              berkolaborasi dalam proyek-proyek yang bermakna. Baik Anda seorang
+              rekan developer, pemilik bisnis, atau sekadar memiliki
+              ketertarikan yang sama terhadap teknologi dan kreativitas — jangan
+              ragu untuk terhubung.
+              <span class="font-bold italic text-slate-600 dark:text-slate-400"
+                >Let’s build something great together.</span
+              >
             </p>
             <div class="flex items-center">
-              <!-- Youtube -->
+              <!-- Github -->
               <a
-                href="https://youtube.com/webprogrammingunpas"
+                href="https://github.com/Adrian-Silalahi"
                 target="_blank"
                 class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               >
-                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  role="img"
+                  width="20"
+                  class="fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>GitHub</title>
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                  />
+                </svg>
+              </a>
+
+              <!-- LinkedIn -->
+              <a
+                href="https://www.linkedin.com/in/adrianus-silalahi-511a6b296/"
+                target="_blank"
+                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg
+                  role="img"
+                  width="20"
+                  class="fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>LinkedIn</title>
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+
+              <!-- Youtube -->
+              <a
+                href="https://www.youtube.com/@adrianussilalahi7302"
+                target="_blank"
+                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg
+                  role="img"
+                  width="20"
+                  class="fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <title>YouTube</title>
                   <path
                     d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
@@ -133,304 +336,1017 @@
 
               <!-- Instagram -->
               <a
-                href="https://instagram.com/sandhikagalih"
+                href="https://www.instagram.com/_adriansilalahi"
                 target="_blank"
                 class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               >
-                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  role="img"
+                  width="20"
+                  class="fill-current"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <title>Instagram</title>
                   <path
                     d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
                   />
                 </svg>
               </a>
-
-              <!-- Twitter -->
-              <a
-                href="https://twitter.com/sandhikagalih"
-                target="_blank"
-                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-              >
-                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <title>Twitter</title>
-                  <path
-                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-                  />
-                </svg>
-              </a>
-
-              <!-- TikTok -->
-              <a
-                href="https://tiktok.com/@sandhika.galih"
-                target="_blank"
-                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-              >
-                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <title>TikTok</title>
-                  <path
-                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
-                  />
-                </svg>
-              </a>
-
-              <!-- LinkedIn -->
-              <a
-                href="https://linkedin.com/in/sandhikagalih"
-                target="_blank"
-                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-              >
-                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <title>LinkedIn</title>
-                  <path
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                  />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- About Section End -->
+    <!-- Tentang Saya Section End -->
 
-    <!-- Portfolio Section Start -->
-    <section id="portfolio" class="bg-slate-100 pt-36 pb-16 dark:bg-slate-800">
+    <section
+      id="portfolio"
+      class="overflow-hidden bg-slate-100 pt-36 pb-32 dark:bg-slate-800"
+    >
       <div class="container">
         <div class="w-full px-4">
-          <div class="mx-auto mb-16 max-w-xl text-center">
-            <h4 class="mb-2 text-lg font-semibold text-primary">Portfolio</h4>
-            <h2 class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl">Project Terbaru</h2>
+          <div class="mx-auto mb-20 max-w-xl text-center">
+            <h4
+              class="mb-2 text-lg font-semibold uppercase tracking-wider text-primary"
+            >
+              Portfolio
+            </h4>
+
             <p class="text-md font-medium text-secondary md:text-lg">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus porro consequuntur alias, commodi nemo enim aliquam ipsam obcaecati? Assumenda, ipsam?
+              Berikut adalah beberapa project unggulan yang telah saya kerjakan
+              dengan fokus pada performa, desain, dan fungsionalitas.
             </p>
           </div>
         </div>
 
-        <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="overflow-hidden rounded-md shadow-md">
-              <img src="dist/img/portfolio/1.png" alt="Landing Page" width="w-full" />
+        <div
+          class="mb-24 flex w-full flex-wrap items-center justify-center px-4 lg:mb-32"
+        >
+          <div class="mb-10 w-full px-4 lg:mb-0 lg:w-1/2" data-aos="fade-up">
+            <div
+              class="swiper project-carousel rounded-xl shadow-xl dark:shadow-slate-700/50"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/sertifikat-magang.webp"
+                    alt="AI Project Screenshot 1"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/ciamic1.webp"
+                    alt="AI Project Screenshot 2"
+                    class="object-fill"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/ciamic2.webp"
+                    alt="AI Project Screenshot 3"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
             </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Landing Page Sandhika Galih</h3>
-            <p class="text-base font-medium text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, iusto! Aliquam, corporis.</p>
           </div>
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="overflow-hidden rounded-md shadow-md">
-              <img src="dist/img/portfolio/2.png" alt="E-Commerce" width="w-full" />
+          <div class="w-full px-4 lg:w-1/2 lg:pl-12">
+            <h3
+              class="mb-4 text-2xl font-bold text-dark dark:text-white lg:text-3xl"
+            >
+              Magang Full-Stack Web Developer
+            </h3>
+            <p
+              class="mb-6 text-justify text-base font-medium leading-relaxed text-secondary dark:text-slate-400 underline"
+            >
+              Mengembangkan Chat Asisten Virtual Real-Time (AI) untuk mendukung
+              peningkatan penjualan Tim Account Management Telkom Indonesia
+            </p>
+            <ul>
+              <li
+                class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+              >
+                Mengembangkan
+                <span class="font-semibold">10 fitur baru</span> menggunakan
+                <span class="font-semibold"
+                  >React JS, TypeScript, Node JS, MySQL</span
+                >, termasuk bookmark chat, modal notifikasi koneksi terputus,
+                hingga rekomendasi pertanyaan.
+              </li>
+              <li
+                class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+              >
+                Memperbaiki
+                <span class="font-semibold">26+ error sistem & bug</span> selama
+                migrasi sistem dari v1 ke v2, memastikan performa aplikasi dan
+                transisi pengguna yang mulus.
+              </li>
+              <li
+                class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+              >
+                Mengimplementasikan desain UI/UX responsif dari Figma ke dalam
+                kode menggunakan SCSS, serta mengintegrasikan endpoint
+                <span class="font-semibold">RESTful API</span> untuk
+                fungsionalitas Front-end & Back-end.
+              </li>
+              <li
+                class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+              >
+                <span class="font-semibold">Berkolaborasi dengan tim</span>
+                untuk mendokumentasikan bug secara mendetail, menganalisis akar
+                masalah, dan menerapkan solusi perbaikan.
+              </li>
+              <li
+                class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+              >
+                <span class="font-semibold">Mendapatkan nilai “A”</span> pada
+                transkrip akademik magang berkat kontribusi proaktif dalam
+                pengembangan fitur dan pemeliharaan kode.
+              </li>
+            </ul>
+
+            <div class="mb-8 flex flex-wrap gap-2">
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >React JS</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >TypeScript</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >SCSS</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >Node JS</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >MongoDB</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >Trello</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >GitLab</span
+              >
             </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">E-Commerce</h3>
-            <p class="text-base font-medium text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, iusto! Aliquam, corporis.</p>
           </div>
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="overflow-hidden rounded-md shadow-md">
-              <img src="dist/img/portfolio/3.png" alt="Technical Documentation" width="w-full" />
+        </div>
+
+        <div
+          class="mb-24 flex w-full flex-col-reverse flex-wrap items-center justify-center px-4 lg:mb-32 lg:flex-row"
+        >
+          <div class="w-full px-4 lg:w-1/2 lg:pr-12">
+            <h3
+              class="mb-4 text-2xl font-bold text-dark dark:text-white lg:text-3xl"
+            >
+              Bodat Chic Sec Platform
+            </h3>
+            <p
+              class="mb-6 text-base font-medium leading-relaxed text-secondary underline dark:text-slate-400"
+            >
+              Platform belanja online yang responsif dan lengkap untuk bisnis
+              thrift saya. Dilengkapi dengan fitur keranjang belanja real-time,
+              dashboard admin untuk manajemen produk, hingga integrasi ke sistem
+              pembayaran.
+            </p>
+            <div class="mb-8 flex flex-wrap gap-2">
+              <ul class="mb-6 ">
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  Membangun platform
+                  <span class="font-semibold">full-stack</span> menggunakan
+                  <span class="font-semibold"
+                    >Next JS, TypeScript, Node JS, dan MongoDB</span
+                  >.
+                </li>
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  Merancang arsitektur sistem Back-end dengan
+                  <span class="font-semibold">Prisma</span> melalui desain
+                  <span class="font-semibold">5 model data inti</span>.
+                </li>
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  Mengimplementasikan
+                  <span class="font-semibold">9 fitur utama</span>, termasuk
+                  alur otentikasi dan proses checkout yang efisien.
+                </li>
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  Membuat
+                  <span class="font-semibold">dashboard admin privat</span>
+                  untuk mengelola katalog produk dan menganalisis
+                  <span class="font-semibold">6 metrik toko utama</span>
+                  (Pesanan Dibayar & Belum Dibayar, Total Pesanan, Total
+                  Penjualan, Total Pengguna, dan Total Produk).
+                </li>
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  Men-<span class="font-semibold">deploy</span> aplikasi ke
+                  Vercel untuk akses publik (beta) dan mengintegrasikan gateway
+                  pembayaran untuk pemrosesan transaksi yang aman.
+                </li>
+              </ul>
             </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Technical Documentation</h3>
-            <p class="text-base font-medium text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, iusto! Aliquam, corporis.</p>
+            <div class="mb-8 flex flex-wrap gap-2">
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >Next JS</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >TypeScript</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >Tailwind</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >Node JS</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >MongoDB</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >Prisma</span
+              >
+            </div>
+            <a
+              href="https://bodat-chic-sec.vercel.app/"
+              target="_blank"
+              class="group inline-flex items-center gap-2 text-lg font-semibold text-primary transition-colors duration-300 hover:text-dark dark:hover:text-white"
+            >
+              Lihat Project Live
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
+            </a>
           </div>
-          <div class="mb-12 p-4 md:w-1/2">
-            <div class="overflow-hidden rounded-md shadow-md">
-              <img src="dist/img/portfolio/4.png" alt="Tribute Page" width="w-full" />
+          <div class="mb-10 w-full px-4 lg:mb-0 lg:w-1/2">
+            <div
+              class="swiper project-carousel rounded-xl shadow-xl dark:shadow-slate-700/50"
+              data-aos="fade-up"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/bodat1.webp"
+                    alt="E-Comm Screenshot 1"
+                    class="h-full w-full bg-gray-100 !object-contain"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/bodat2.webp"
+                    alt="E-Comm Screenshot 2"
+                    class="h-full w-full bg-gray-100 !object-contain"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/bodat3.webp"
+                    alt="E-Comm Screenshot 3"
+                    class="h-full w-full bg-gray-100 !object-contain"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/bodat4.webp"
+                    alt="E-Comm Screenshot 4"
+                    class="h-full w-full bg-gray-100 !object-contain"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
             </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark dark:text-white">Tribute Page</h3>
-            <p class="text-base font-medium text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, iusto! Aliquam, corporis.</p>
+          </div>
+        </div>
+
+        <div class="flex w-full flex-wrap items-center justify-center px-4">
+          <div class="mb-10 w-full px-4 lg:mb-0 lg:w-1/2">
+            <div
+              class="swiper project-carousel rounded-xl shadow-xl dark:shadow-slate-700/50"
+              data-aos="fade-up"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/afb1.webp"
+                    alt="Docs Screenshot 1"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/afb2.webp"
+                    alt="Docs Screenshot 2"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/afb3.webp"
+                    alt="Docs Screenshot 3"
+                  />
+                </div>
+
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/afb4.webp"
+                    alt="Docs Screenshot 4"
+                    class="h-full w-full bg-white !object-contain"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/afb5.webp"
+                    alt="Docs Screenshot 5 "
+                    class="h-full w-full bg-white !object-contain"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/afb6.webp"
+                    alt="Docs Screenshot 6"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="w-full px-4 lg:w-1/2 lg:pl-12">
+            <h3
+              class="mb-4 text-2xl font-bold text-dark dark:text-white lg:text-3xl"
+            >
+              Tugas Akhir: AFB-Sena Sentiment Analysis
+            </h3>
+            <p
+              class="mb-6 text-base font-medium leading-relaxed text-secondary underline dark:text-slate-400"
+            >
+              Aplikasi Web Analisis Sentimen Terintegrasi — Scraping Otomatis,
+              Cleaning & Pelatihan AI (Model RoBERTa)
+            </p>
+            <div class="">
+              <ul class="mb-6 ">
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  Membangun Platform NLP End-to-End dengan
+                  <span class="font-semibold">React.js, FastAPI.</span>
+                  Menyatukan skrip AI yang kompleks
+                  <span class="font-semibold"
+                    >(Scraping, Preprocessing, Fine-tuning)</span
+                  >
+                  ke dalam satu antarmuka web.
+                </li>
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  Mengembangkan
+                  <span class="font-semibold">18 endpoint RESTful API</span>
+                  penghubung Frontend dan backend untuk mendukung pelatihan data
+                  serta prediksi real-time.
+                </li>
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  Mendesain
+                  <span class="font-semibold">31 layar UI interaktif</span> di
+                  Figma dan menerjemahkannya menjadi kode.
+                </li>
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  <span class="font-semibold"
+                    >Memimpin tim agile beranggotakan 3 orang</span
+                  >
+                  menggunakan <span class="font-semibold">Trello</span>,
+                  mengelola <span class="font-semibold">79+ backlog</span> dan
+                  memastikan kolaborasi yang mulus antara dokumentasi,
+                  pemodelan, dan aplikasi web.
+                </li>
+                <li
+                  class="mb-2 list-disc pl-5 text-justify text-base font-medium text-secondary dark:text-slate-400"
+                >
+                  <span class="font-semibold">Meraih Nilai "A"</span> dalam
+                  Tugas Akhir setelah membangun platform NLP berbasis web —
+                  melakukan analisis performa model BERT dan RoBERTa.
+                </li>
+              </ul>
+            </div>
+            <div class="mb-8 flex flex-wrap gap-2">
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >React JS</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >SCSS</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >Python</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >FastAPI</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >MongoDB</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >Trello</span
+              >
+              <span
+                class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >Figma</span
+              >
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Portfolio Section End -->
 
-    <!-- Clients Section Start -->
-    <section id="clients" class="bg-slate-800 pt-36 pb-32 dark:bg-slate-300">
+    <!-- Education Section Start -->
+    <section
+      id="education"
+      class="bg-slate-900 pb-32 pt-36 transition-colors duration-300 dark:bg-slate-50"
+    >
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto mb-16 text-center">
-            <h4 class="mb-2 text-lg font-semibold text-primary">Clients</h4>
-            <h2 class="mb-4 text-3xl font-bold text-white dark:text-dark sm:text-4xl lg:text-5xl">Yang Pernah Bekerjasama</h2>
-            <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero suscipit facilis velit!</p>
+            <h4 class="mb-2 text-lg font-bold uppercase text-primary">
+              Education
+            </h4>
+           
+            <p
+              class="text-md font-medium text-slate-400 dark:text-slate-500 md:text-lg"
+            >
+              Fondasi ilmu komputer dan rekayasa perangkat lunak yang saya
+              bangun di bangku kuliah.
+            </p>
           </div>
         </div>
 
-        <div class="w-full px-4">
-          <div class="flex flex-wrap items-center justify-center">
-            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="dist/img/clients/google.svg" alt="Google" />
-            </a>
-            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="dist/img/clients/gojek.svg" alt="Gojek" />
-            </a>
-            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="dist/img/clients/tokopedia.svg" alt="Tokopedia" />
-            </a>
-            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="dist/img/clients/traveloka.svg" alt="traveloka" />
-            </a>
+        <div class="flex w-full flex-wrap items-center justify-center px-4">
+          <div class="mb-10 w-full px-4 lg:mb-0 lg:w-1/2">
+            <div
+              class="swiper project-carousel relative overflow-hidden rounded-xl shadow-slate-700/50 transition-shadow hover:shadow-xl dark:shadow-lg"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/education1.jpeg"
+                    alt="Foto Wisuda"
+                    class="h-full w-full object-cover object-center"
+                  />
+                </div>
+                <div class="swiper-slide">
+                  <img
+                    src="dist/img/portfolio/education2.webp"
+                    alt="Gedung Kampus"
+                    class="h-full w-full object-cover object-center"
+                  />
+                </div>
+              </div>
+              <div class="swiper-button-next text-primary"></div>
+              <div class="swiper-button-prev text-primary"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="w-full px-4 lg:w-1/2 lg:pl-12">
+            <h3
+              class="mb-2 text-2xl font-bold text-white dark:text-slate-900 lg:text-3xl"
+            >
+              S1 Teknik Informatika
+            </h3>
+
+            <div
+              class="mb-5 flex flex-wrap items-center gap-2 text-base font-medium text-slate-300 dark:text-slate-600"
+            >
+              <span>Universitas Mikroskil</span>
+              <span
+                class="block h-1 w-1 rounded-full bg-slate-500 dark:bg-slate-400"
+              ></span>
+              <span>Lulus Okt 2025</span>
+            </div>
+
+            <div
+              class="mb-6 rounded-lg border-l-4 border-primary bg-slate-800 p-4 dark:bg-blue-50"
+            >
+              <p
+                class="text-lg font-semibold text-slate-200 dark:text-slate-800"
+              >
+                IPK: <span class="text-primary">3.86 / 4.00</span>
+              </p>
+              <p
+                class="mt-1 text-sm font-medium text-slate-400 dark:text-slate-600"
+              >
+                Predikat:
+                <span class="font-bold text-yellow-400 dark:text-yellow-600"
+                  >Summa Cum Laude</span
+                >
+              </p>
+            </div>
+
+            <div class="mb-6">
+              <h5
+                class="mb-3 text-lg font-semibold text-white dark:text-slate-900"
+              >
+                Mata Kuliah Relevan
+              </h5>
+
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="cursor-default rounded-full bg-slate-700 px-3 py-1 text-sm font-medium text-slate-200 transition hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-700 dark:hover:bg-slate-300"
+                >
+                  Front-End Web Dev
+                </span>
+                <span
+                  class="cursor-default rounded-full bg-slate-700 px-3 py-1 text-sm font-medium text-slate-200 transition hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-700 dark:hover:bg-slate-300"
+                >
+                  Back-End Web Dev
+                </span>
+                <span
+                  class="cursor-default rounded-full bg-slate-700 px-3 py-1 text-sm font-medium text-slate-200 transition hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-700 dark:hover:bg-slate-300"
+                >
+                  OOP & Design Patterns
+                </span>
+                <span
+                  class="cursor-default rounded-full bg-slate-700 px-3 py-1 text-sm font-medium text-slate-200 transition hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-700 dark:hover:bg-slate-300"
+                >
+                  Database Modeling
+                </span>
+                <span
+                  class="cursor-default rounded-full bg-slate-700 px-3 py-1 text-sm font-medium text-slate-200 transition hover:bg-slate-600 dark:bg-slate-200 dark:text-slate-700 dark:hover:bg-slate-300"
+                >
+                  Agile Development
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Clients Section End -->
+    <!-- Education Section End -->
 
-    <!-- Blog Section Start -->
-    <section id="blog" class="bg-slate-100 pt-36 pb-32 dark:bg-dark">
+    <!-- Certificate Section Start -->
+    <section id="certificate" class="bg-slate-100 pt-36 pb-32 dark:bg-dark">
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto mb-16 max-w-xl text-center">
-            <h4 class="mb-2 text-lg font-semibold text-primary">Blog</h4>
-            <h2 class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl">Tulisan Terkini</h2>
-            <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quisquam perspiciatis blanditiis dolores?</p>
+            <h4 class="mb-2 text-lg font-semibold text-primary">CERTIFICATE</h4>
+
+            <p class="text-md font-medium text-secondary dark:text-slate-400 md:text-lg">
+             saya berkomitmen untuk terus meningkatkan keterampilan dan beradaptasi dengan perkembangan teknologi
+            </p>
           </div>
         </div>
 
-        <div class="flex flex-wrap">
-          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
-              <img src="https://source.unsplash.com/360x200?programming" alt="Programming" class="w-full" />
-              <div class="py-8 px-6">
-                <h3>
-                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">Tips Belajar Programming</a>
+        <div class="flex flex-wrap justify-center gap-y-14">
+          <div class="h-[520px] w-full px-4 lg:w-1/2 xl:w-1/3" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800"
+            >
+              <div class="min-h-0 flex-[2_1_0] bg-white">
+                <img
+                  src="dist/img/portfolio/sertifikat1.webp"
+                  alt="sertifikat1"
+                  class="h-full w-full object-contain"
+                />
+              </div>
+              <div class="flex-1 py-8 px-6">
+                <h3
+                  class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white"
+                >
+                  IBM Cloud Development
                 </h3>
-                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat officia beatae quisquam?</p>
-                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80">Baca Selengkapnya</a>
+                <p class="mb-6 text-base font-medium text-secondary dark:text-slate-400">
+                  Sertifikasi pengantar pengembangan Cloud, HTML, CSS, dan
+                  JavaScript.
+                </p>
+                <a
+                  target="_blank"
+                  href="https://courses.edx.org/certificates/4eac6dcfd84f4f37a9f332242fb48af4"
+                  class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80"
+                  >Lihat Kredensial</a
+                >
               </div>
             </div>
           </div>
-          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
-              <img src="https://source.unsplash.com/360x200?mechanical+keyboard" alt="Mechanical Keyboard" class="w-full" />
-              <div class="py-8 px-6">
-                <h3>
-                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">Review Keyboard GMMK Pro</a>
+          <div class="h-[520px] w-full px-4 lg:w-1/2 xl:w-1/3" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800"
+            >
+              <div class="min-h-0 flex-[2_1_0] bg-white">
+                <img
+                  src="dist/img/portfolio/sertifikat2.webp"
+                  alt="sertifikat2"
+                  class="h-full w-full object-contain"
+                />
+              </div>
+              <div class="flex-1 py-8 px-6">
+                <h3
+                  class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white"
+                >
+                  Meta Android Development
                 </h3>
-                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi facilis illum in.</p>
-                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80">Baca Selengkapnya</a>
+                <p class="mb-6 text-base font-medium text-secondary dark:text-slate-400">
+                  Sertifikasi pengembangan aplikasi mobile Android tingkat dasar
+                  hingga menengah.
+                </p>
+                <a
+                  target="_blank"
+                  href="https://coursera.org/share/36f0dee2ee3897554c2e05c05b4380bb"
+                  class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80"
+                  >Lihat Kredensial</a
+                >
               </div>
             </div>
           </div>
-          <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
-              <img src="https://source.unsplash.com/360x200?coffee" alt="Coffee" class="w-full" />
-              <div class="py-8 px-6">
-                <h3>
-                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">Menikmati Secangkir Kopi</a>
+          <div class="h-[520px] w-full px-4 lg:w-1/2 xl:w-1/3" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800"
+            >
+              <div class="min-h-0 flex-[2_1_0] bg-white">
+                <img
+                  src="dist/img/portfolio/sertifikat3.webp"
+                  alt="sertifikat3"
+                  class="h-full w-full object-contain"
+                />
+              </div>
+              <div class="flex-1 py-8 px-6">
+                <h3
+                  class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white"
+                >
+                  Cisco Networks
                 </h3>
-                <p class="mb-6 text-base font-medium text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, totam ipsum ea quam sequi velit sunt.</p>
-                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80">Baca Selengkapnya</a>
+                <p class="mb-6 text-base font-medium text-secondary dark:text-slate-400">
+                  Sertifikasi pengantar jaringan komputer dan pengenalan
+                  perangkat Cisco.
+                </p>
+                <a
+                  target="_blank"
+                  href="https://www.coursera.org/account/accomplishments/certificate/AW7SQU2RD28H"
+                  class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80"
+                  >Lihat Kredensial</a
+                >
               </div>
             </div>
           </div>
+          <div class="h-[520px] w-full px-4 lg:w-1/2 xl:w-1/3" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800"
+            >
+              <div class="min-h-0 flex-[2_1_0] bg-white">
+                <img
+                  src="dist/img/portfolio/sertifikat4.webp"
+                  alt="sertifikat4"
+                  class="h-full w-full object-contain"
+                />
+              </div>
+              <div class="flex-1 py-8 px-6">
+                <h3
+                  class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white"
+                >
+                  Telecommunication Business
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary dark:text-slate-400">
+                  Studi mendalam mengenai ekosistem industri telekomunikasi
+                  digital.
+                </p>
+                <p class="mb-6 text-base font-bold dark:text-slate-400">Grade: 98/100.</p>
+                <a
+                  target="_blank"
+                  href="https://sertifikat.icei.ac.id/65fbe1f7-1cb8-4f25-8de6-bf08714a8248"
+                  class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80"
+                  >Lihat Kredensial</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="h-[520px] w-full px-4 lg:w-1/2 xl:w-1/3" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800"
+            >
+              <div class="min-h-0 flex-[2_1_0] bg-white">
+                <img
+                  src="dist/img/portfolio/sertifikat5.webp"
+                  alt="sertifikat5"
+                  class="h-full w-full object-contain"
+                />
+              </div>
+              <div class="flex-1 py-8 px-6">
+                <h3
+                  class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white"
+                >
+                  Metaverse Fundamentals
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary dark:text-slate-400">
+                  Eksplorasi teknologi imersif, VR/AR, dan ekonomi digital baru.
+                </p>
+                <p class="mb-6 text-base font-bold dark:text-slate-400">Grade: 99/100.</p>
+                <a
+                  target="_blank"
+                  href="https://sertifikat.icei.ac.id/2e059c11-c27b-4f4c-b531-ee6a36a2cb9f"
+                  class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80"
+                  >Lihat Kredensial</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="h-[520px] w-full px-4 lg:w-1/2 xl:w-1/3" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800"
+            >
+              <div class="min-h-0 flex-[2_1_0] bg-white">
+                <img
+                  src="dist/img/portfolio/sertifikat6.webp"
+                  alt="sertifikat6"
+                  class="h-full w-full object-contain"
+                />
+              </div>
+              <div class="flex-1 py-8 px-6">
+                <h3
+                  class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white"
+                >
+                  Huawei AI Course
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary dark:text-slate-400">
+                  Menyelesaikan kurikulum HCIA-AI V3.0 yang mencakup penguasaan
+                  algoritma AI dan penerapannya dalam solusi Huawei
+                </p>
+              </div>
+            </div>
+          </div>
+      
         </div>
       </div>
     </section>
-    <!-- Blog Section End -->
+    <!-- Certificate Section End -->
 
-    <!-- Contact Section Start -->
+    <!-- Enterpreneurial Section Start -->
     <section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
       <div class="container">
         <div class="w-full px-4">
           <div class="mx-auto mb-16 max-w-xl text-center">
-            <h4 class="mb-2 text-lg font-semibold text-primary">Contact</h4>
-            <h2 class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl">Hubungi Kami</h2>
-            <p class="text-md font-medium text-secondary md:text-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis, sed.</p>
-          </div>
-        </div>
-
-        <form>
-          <div class="w-full lg:mx-auto lg:w-2/3">
-            <div class="mb-8 w-full px-4">
-              <label for="name" class="text-base font-bold text-primary">Nama</label>
-              <input type="text" id="name" class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
-            </div>
-            <div class="mb-8 w-full px-4">
-              <label for="email" class="text-base font-bold text-primary">Email</label>
-              <input type="email" id="email" class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
-            </div>
-            <div class="mb-8 w-full px-4">
-              <label for="message" class="text-base font-bold text-primary">Pesan</label>
-              <textarea type="email" id="email" class="h-32 w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
-            </div>
-            <div class="w-full px-4">
-              <button class="w-full rounded-full bg-primary py-3 px-8 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg">Kirim</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-    <!-- Contact Section End -->
-
-    <!-- Footer Start -->
-    <footer class="bg-dark pt-24 pb-12">
-      <div class="container">
-        <div class="flex flex-wrap">
-          <div class="mb-12 w-full px-4 font-medium text-slate-300 md:w-1/3">
-            <h2 class="mb-5 text-4xl font-bold text-white">WPU</h2>
-            <h3 class="mb-2 text-2xl font-bold">Hubungi Kami</h3>
-            <p>sandhikagalih@gmail.com</p>
-            <p>Jl. Dr. Setiabudhi No. 193</p>
-            <p>Bandung</p>
-          </div>
-          <div class="mb-12 w-full px-4 md:w-1/3">
-            <h3 class="mb-5 text-xl font-semibold text-white">Kategori Tulisan</h3>
-            <ul class="text-slate-300">
-              <li>
-                <a href="#" class="mb-3 inline-block text-base hover:text-primary">Programming</a>
-              </li>
-              <li>
-                <a href="#" class="mb-3 inline-block text-base hover:text-primary">Teknologi</a>
-              </li>
-              <li>
-                <a href="#" class="mb-3 inline-block text-base hover:text-primary">Gaya Hidup</a>
-              </li>
-            </ul>
-          </div>
-          <div class="mb-12 w-full px-4 md:w-1/3">
-            <h3 class="mb-5 text-xl font-semibold text-white">Tautan</h3>
-            <ul class="text-slate-300">
-              <li>
-                <a href="#home" class="mb-3 inline-block text-base hover:text-primary">Beranda</a>
-              </li>
-              <li>
-                <a href="#about" class="mb-3 inline-block text-base hover:text-primary">Tentang Saya</a>
-              </li>
-              <li>
-                <a href="#portfolio" class="mb-3 inline-block text-base hover:text-primary">Portfolio</a>
-              </li>
-              <li>
-                <a href="#clients" class="mb-3 inline-block text-base hover:text-primary">Clients</a>
-              </li>
-              <li>
-                <a href="#blog" class="mb-3 inline-block text-base hover:text-primary">Blog</a>
-              </li>
-              <li>
-                <a href="#contact" class="mb-3 inline-block text-base hover:text-primary">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="w-full border-t border-slate-700 pt-10">
-          <div class="mb-5 flex items-center justify-center">
-            <!-- Youtube -->
-            <a
-              href="https://youtube.com/webprogrammingunpas"
-              target="_blank"
-              class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+            <h4 class="mb-2 text-lg font-bold uppercase text-primary">
+              Entrepreneurial Experience
+            </h4>
+            <h2
+              class="mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl lg:text-5xl"
             >
-              <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <title>YouTube</title>
+              Business Owner
+            </h2>
+            <p
+              class="text-md font-medium text-secondary dark:text-slate-400 md:text-lg"
+            >
+              Memadukan pemahaman teknologi dengan strategi bisnis untuk
+              membangun brand fashion yang berkelanjutan.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center">
+          <div class="w-full px-4 lg:w-1/2" data-aos="fade-right">
+            <h3
+              class="mb-4 text-2xl font-bold text-dark dark:text-white lg:text-3xl"
+            >
+              Bodat Chic Sec
+              <span class="block text-base font-medium text-primary"
+                >Founder & Owner | 2021 - Present</span
+              >
+            </h3>
+            <p
+              class="mb-6 text-justify text-base font-medium leading-relaxed text-secondary dark:text-slate-400 lg:text-lg"
+            >
+              Sebagai Founder, saya mengelola operasi bisnis end-to-end dari
+              sebuah toko Thrift Online yang berfokus pada fashion berkualitas
+              dan berkelanjutan. Saya menerapkan strategi
+              <span class="font-bold text-dark dark:text-white"
+                >Digital Marketing</span
+              >
+              dan
+              <span class="font-bold text-dark dark:text-white"
+                >Data Analysis</span
+              >
+              sederhana untuk membaca tren pasar, yang kemudian saya terjemahkan
+              ke dalam pengembangan platform e-commerce saya sendiri.
+            </p>
+
+            <div class="mb-8 grid grid-cols-3 gap-4 text-center">
+              <div
+                class="rounded-lg bg-slate-100 p-4 transition duration-300 hover:shadow-md dark:bg-slate-700"
+                data-aos="zoom-in" data-aos-delay="100"
+              >
+                <h3 class="text-2xl font-bold text-primary">2000+</h3>
+                <p
+                  class="text-sm font-medium text-secondary dark:text-slate-300"
+                >
+                  Produk Terjual
+                </p>
+              </div>
+              <div
+                class="rounded-lg bg-slate-100 p-4 transition duration-300 hover:shadow-md dark:bg-slate-700"
+                data-aos="zoom-in" data-aos-delay="100"
+              >
+                <h3 class="text-2xl font-bold text-primary">4.8/5</h3>
+                <p
+                  class="text-sm font-medium text-secondary dark:text-slate-300"
+                >
+                  Rating Toko
+                </p>
+              </div>
+              <div
+                class="rounded-lg bg-slate-100 p-4 transition duration-300 hover:shadow-md dark:bg-slate-700"
+                data-aos="zoom-in" data-aos-delay="100"
+              >
+                <h3 class="text-2xl font-bold text-primary">2.3K</h3>
+                <p
+                  class="text-sm font-medium text-secondary dark:text-slate-300"
+                >
+                  Followers
+                </p>
+              </div>
+            </div>
+
+            <div class="mb-8">
+              <h5 class="mb-3 text-lg font-semibold text-dark dark:text-white">
+                Keahlian Bisnis & Tools:
+              </h5>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >
+                  Shopee Seller Centre
+                </span>
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >
+                  Digital Marketing
+                </span>
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >
+                  Inventory Management
+                </span>
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >
+                  Customer Relation
+                </span>
+                <span
+                  class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                >
+                  Adobe Illustrator Design
+                </span>
+              </div>
+            </div>
+
+            <a
+              href="https://shopee.co.id/bodatchic  sec"
+              target="_blank"
+              class="inline-flex items-center rounded-full bg-primary py-3 px-8 text-base font-semibold text-white transition duration-300 ease-in-out hover:opacity-80 hover:shadow-lg"
+            >
+              Kunjungi Toko
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="ml-2 h-5 w-5"
+              >
                 <path
-                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                 />
               </svg>
             </a>
+          </div>
 
+          <div class="mt-10 w-full px-4 lg:mt-0 lg:w-1/2" data-aos="fade-up" data-aos-duration="1500">
+            <div class="relative">
+              <div
+                class="absolute top-0 -left-4 -z-10 h-64 w-64 rounded-full bg-primary/20 blur-3xl filter dark:bg-primary/10"
+              ></div>
+
+              <div
+                class="overflow-hidden rounded-xl bg-white shadow-xl dark:bg-slate-700"
+              >
+                <div
+                  class="flex items-center gap-2 border-b bg-slate-100 p-3 dark:border-slate-600 dark:bg-slate-800"
+                >
+                  <div class="h-3 w-3 rounded-full bg-red-500"></div>
+                  <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+                  <div class="h-3 w-3 rounded-full bg-green-500"></div>
+                  <div
+                    class="ml-2 w-full rounded-md bg-white px-2 py-1 text-xs text-slate-400 dark:bg-slate-700"
+                  >
+                    shopee.co.id/bodatchicsec
+                  </div>
+                </div>
+
+                <img
+                  src="dist/img/portfolio/shopee.webp"
+                  alt="Bodat Chic Sec Dashboard"
+                  class="h-auto w-full object-cover transition duration-500 hover:scale-105"
+                />
+              </div>
+
+              <div
+                class="absolute -bottom-6 -right-4 animate-bounce rounded-lg bg-white p-4 shadow-lg dark:bg-slate-800"
+              >
+                <div class="flex items-center gap-3">
+                  <div
+                    class="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M12 2v20" />
+                      <path
+                        d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-xs text-secondary dark:text-slate-400">
+                      Monthly Revenue
+                    </p>
+                    <p class="font-bold text-dark dark:text-white">
+                      Growing 🚀
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Enterpreneurial Section End -->
+
+    <!-- Footer Start -->
+    <footer class="bg-dark pb-12">
+      <div class="container">
+        <div class="w-full border-t border-slate-700 pt-10">
+          <div class="mb-5 flex items-center justify-center">
             <!-- Instagram -->
             <a
-              href="https://instagram.com/sandhikagalih"
+              href="https://www.instagram.com/_adriansilalahi"
               target="_blank"
               class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
             >
-              <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                role="img"
+                width="20"
+                class="fill-current"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <title>Instagram</title>
                 <path
                   d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
@@ -438,41 +1354,39 @@
               </svg>
             </a>
 
-            <!-- Twitter -->
+            <!-- Github -->
             <a
-              href="https://twitter.com/sandhikagalih"
+              href="https://github.com/Adrian-Silalahi"
               target="_blank"
               class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
             >
-              <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <title>Twitter</title>
+              <svg
+                role="img"
+                width="20"
+                class="fill-current"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>GitHub</title>
                 <path
-                  d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-                />
-              </svg>
-            </a>
-
-            <!-- TikTok -->
-            <a
-              href="https://tiktok.com/@sandhika.galih"
-              target="_blank"
-              class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-            >
-              <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <title>TikTok</title>
-                <path
-                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
                 />
               </svg>
             </a>
 
             <!-- LinkedIn -->
             <a
-              href="https://linkedin.com/in/sandhikagalih"
+              href="https://www.linkedin.com/in/adrianus-silalahi-511a6b296/"
               target="_blank"
               class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-300 hover:border-primary hover:bg-primary hover:text-white"
             >
-              <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                role="img"
+                width="20"
+                class="fill-current"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <title>LinkedIn</title>
                 <path
                   d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
@@ -481,8 +1395,19 @@
             </a>
           </div>
           <p class="text-center text-xs font-medium text-slate-500">
-            Dibuat dengan <span class="text-pink-500">❤️</span> oleh <a href="https://instagram.com/sandhikagalih" target="_blank" class="font-bold text-primary">Sandhika Galih</a>, menggunakan
-            <a href="https://tailwindcss.com" target="_blank" class="font-bold text-sky-500">Tailwind CSS</a>.
+            Dibuat dengan <span class="text-pink-500">❤️</span> oleh
+            <a
+              href="https://instagram.com/sandhikagalih"
+              target="_blank"
+              class="font-bold text-primary"
+              >Adrianus Silalahi</a
+            >, menggunakan
+            <a
+              href="https://tailwindcss.com"
+              target="_blank"
+              class="font-bold text-sky-500"
+              >Tailwind CSS</a
+            >.
           </p>
         </div>
       </div>
@@ -490,11 +1415,49 @@
     <!-- Footer End -->
 
     <!-- Back to top Start -->
-    <a href="#home" class="fixed bottom-4 right-4 z-[9999] hidden h-14 w-14 items-center justify-center rounded-full bg-primary p-4 hover:animate-pulse" id="to-top">
+    <a
+      href="#beranda"
+      class="fixed bottom-4 right-4 z-[9999] hidden h-14 w-14 items-center justify-center rounded-full bg-primary p-4 hover:animate-pulse"
+      id="to-top"
+    >
       <span class="mt-2 block h-5 w-5 rotate-45 border-t-2 border-l-2"></span>
     </a>
     <!-- Back to top End -->
 
-    <script src="dist/js/script.js"></script>
+   <script src="dist/js/script.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      // Inisialisasi Swiper
+      var swiper = new Swiper(".project-carousel", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        grabCursor: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          dynamicBullets: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+    <script>
+      // Inisialisasi AOS
+      // Pastikan script ini dijalankan SETELAH library aos.js di-load
+      AOS.init({
+        once: true, // Animasi cuma jalan sekali
+        duration: 1000, // Durasi 1 detik
+      });
+    </script>
+  </body>
+</html>
   </body>
 </html>
